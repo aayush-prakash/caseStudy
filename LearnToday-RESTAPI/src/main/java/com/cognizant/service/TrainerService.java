@@ -17,12 +17,5 @@ public class TrainerService {
 		return trainerRepo.saveAndFlush(trainer);
 	}
 
-	public Optional<Trainer> update(int id, String password) {
-		Optional<Trainer>trainer = trainerRepo.findById(id);
-		if(trainer == null) {
-			return null;
-		}
-		trainer.get().setPassword(password);
-		return trainer;
-	}
+	
 }
