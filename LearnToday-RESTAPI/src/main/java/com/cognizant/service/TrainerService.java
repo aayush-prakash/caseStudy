@@ -16,6 +16,14 @@ public class TrainerService {
 	public Trainer save(Trainer trainer) {
 		return trainerRepo.saveAndFlush(trainer);
 	}
-
+public Optional<Trainer> update(int id, String password) {
+		Optional<Trainer>trainer = trainerRepo.findById(id);
+		if(trainer == null) {
+			return null;
+		}
+		trainer.get().setPassword(password);
+		trainerRepo.saveAndFlush(trainer.get());
+		return trainer;
+	}
 	
 }
